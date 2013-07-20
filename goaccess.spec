@@ -1,6 +1,6 @@
 Name:		goaccess		
-Version:	0.5
-Release:	2%{?dist}
+Version:	0.6
+Release:	1%{?dist}
 Summary:	Apache Log Analyzer
 
 License:	GPLv2+	
@@ -37,6 +37,9 @@ make install DESTDIR=%{buildroot}
 
 
 %changelog
+* Fri Jul 19 2013 Eduardo Echeverria  <echevemaster@gmail.com> - 0.6-1
+- Updated to the new upstream version
+
 * Sat May 25 2013 Eduardo Echeverria  <echevemaster@gmail.com> - 0.5-2
 - Fix license field, GPLv2+ is correct
 - Add NEWS and Changelog files to %%doc
