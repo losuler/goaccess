@@ -1,6 +1,6 @@
 Name:		goaccess		
 Version:	0.6
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Apache Log Analyzer
 
 License:	GPLv2+	
@@ -37,6 +37,9 @@ make install DESTDIR=%{buildroot}
 
 
 %changelog
+* Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.6-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
+
 * Fri Jul 19 2013 Eduardo Echeverria  <echevemaster@gmail.com> - 0.6-1
 - Updated to the new upstream version
 
