@@ -1,5 +1,5 @@
 Name:		goaccess		
-Version:	0.6.1
+Version:	0.7
 Release:	1%{?dist}
 Summary:	Apache Log Analyzer
 License:	GPLv2+	
@@ -18,7 +18,7 @@ for system administrators that require a visual server report on the fly.
 %setup -q
 
 %build
-%configure --enable-geoip
+%configure --enable-geoip --enable-utf8
 make %{?_smp_mflags}
 
 %install
@@ -30,6 +30,9 @@ make install DESTDIR=%{buildroot}
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Wed Nov 20 2013 Eduardo Echeverria <echevemaster@gmail.com> - 0.7-1
+- Update to 0.7
+
 * Wed Nov 20 2013 Christopher Meng <rpm@cicku.me> - 0.6.1-1
 - Update to 0.6.1
 
