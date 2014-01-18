@@ -1,0 +1,61 @@
+diff -up goaccess-0.7/configure~ goaccess-0.7/configure
+--- goaccess-0.7/configure~	2013-12-08 22:12:21.000000000 +0200
++++ goaccess-0.7/configure	2013-12-08 22:12:21.000000000 +0200
+@@ -3942,7 +3942,6 @@ else
+   as_fn_error $? "libgeoip-dev is missing" "$LINENO" 5
+ fi
+ 
+-   CFLAGS="-lGeoIP"
+ fi
+ 
+ if test "$USE_UTF8" = "yes"; then
+@@ -3993,7 +3992,6 @@ else
+   as_fn_error $? "libncursesw5-dev is missing" "$LINENO" 5
+ fi
+ 
+-   CFLAGS="-lncursesw"
+ else
+    { $as_echo "$as_me:${as_lineno-$LINENO}: checking for refresh in -lncurses" >&5
+ $as_echo_n "checking for refresh in -lncurses... " >&6; }
+@@ -4042,7 +4040,6 @@ else
+   as_fn_error $? "libncurses5-dev is missing" "$LINENO" 5
+ fi
+ 
+-   CFLAGS="-lncurses"
+ fi
+ 
+ # pthread
+@@ -4093,7 +4090,7 @@ else
+   as_fn_error $? "pthread is missing" "$LINENO" 5
+ fi
+ 
+-CFLAGS="-pthread"
++CFLAGS="$CFLAGS -pthread"
+ 
+ # Checks for libraries.
+ { $as_echo "$as_me:${as_lineno-$LINENO}: checking for g_free in -lglib-2.0" >&5
+diff -up goaccess-0.7/configure.ac~ goaccess-0.7/configure.ac
+--- goaccess-0.7/configure.ac~	2013-12-08 22:12:14.000000000 +0200
++++ goaccess-0.7/configure.ac	2013-12-08 22:12:14.000000000 +0200
+@@ -24,20 +24,17 @@ AC_ARG_ENABLE(utf8,--enable-utf8 Enable
+ 
+ if test "$USE_GEOIP" = "yes"; then
+    AC_CHECK_LIB([GeoIP], [GeoIP_new], [], [AC_MSG_ERROR([libgeoip-dev is missing])])
+-   CFLAGS="-lGeoIP"
+ fi
+ 
+ if test "$USE_UTF8" = "yes"; then
+    AC_CHECK_LIB([ncursesw], [mvaddwstr], [], [AC_MSG_ERROR([libncursesw5-dev is missing])])
+-   CFLAGS="-lncursesw"
+ else
+    AC_CHECK_LIB([ncurses], [refresh], [], [AC_MSG_ERROR([libncurses5-dev is missing])])
+-   CFLAGS="-lncurses"
+ fi
+ 
+ # pthread
+ AC_CHECK_LIB([pthread], [pthread_create], [], [AC_MSG_ERROR([pthread is missing])])
+-CFLAGS="-pthread"
++CFLAGS="$CFLAGS -pthread"
+ 
+ # Checks for libraries.
+ AC_CHECK_LIB([glib-2.0], [g_free], [], [AC_MSG_ERROR([glib-2.x is missing])])
