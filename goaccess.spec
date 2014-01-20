@@ -37,7 +37,7 @@ make install DESTDIR=%{buildroot}
 * Sat Jan 18 2014 Ville Skyttä <ville.skytta@iki.fi> - 0.7-2
 - Build with $RPM_OPT_FLAGS, fix -debuginfo.
 
-* Wed Nov 20 2013 Eduardo Echeverria <echevemaster@gmail.com> - 0.7-1
+* Wed Jan 15 2014 Eduardo Echeverria <echevemaster@gmail.com> - 0.7-1
 - Update to 0.7
 
 * Wed Nov 20 2013 Christopher Meng <rpm@cicku.me> - 0.6.1-1
