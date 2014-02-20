@@ -1,12 +1,10 @@
 Name:		goaccess
-Version:	0.7
-Release:	2%{?dist}
+Version:	0.7.1
+Release:	1%{?dist}
 Summary:	Apache Log Analyzer
 License:	GPLv2+
 URL:		http://goaccess.prosoftcorp.com/
 Source0:	http://downloads.sourceforge.net/project/%{name}/%{version}/%{name}-%{version}.tar.gz
-# https://github.com/allinurl/goaccess/pull/74
-Patch0:		%{name}-0.7-cflags.patch
 BuildRequires:	ncurses-devel
 BuildRequires:	glib2-devel
 BuildRequires:	GeoIP-devel
@@ -18,8 +16,6 @@ for system administrators that require a visual server report on the fly.
 
 %prep
 %setup -q
-%patch0 -p1 -b .cflags
-touch -r configure.ac.cflags configure.ac
 
 %build
 %configure --enable-debug --enable-geoip --enable-utf8
@@ -34,6 +30,9 @@ make install DESTDIR=%{buildroot}
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Thu Feb 20 2014 Christopher Meng <rpm@cicku.me> - 0.7.1-1
+- Update to 0.7.1
+
 * Sat Jan 18 2014 Ville Skyttä <ville.skytta@iki.fi> - 0.7-2
 - Build with $RPM_OPT_FLAGS, fix -debuginfo.
 
