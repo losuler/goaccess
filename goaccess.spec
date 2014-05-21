@@ -19,6 +19,10 @@ for system administrators that require a visual server report on the fly.
 
 %build
 %configure --enable-debug --enable-geoip --enable-utf8
+# Note about Tokyo Cabinet hash table support, as you can see 0.8 onwards
+# support hash table alternative from Tokyo Cabinet hash database, to replace
+# GLib if needed. Basically, we can use GLib still as TC will introduce more
+# dependencies.
 make %{?_smp_mflags}
 
 %install
@@ -26,6 +30,7 @@ make %{?_smp_mflags}
 
 %files
 %doc AUTHORS ChangeLog COPYING NEWS README TODO
+%config(noreplace) %{_sysconfdir}/%{name}.conf
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
 
