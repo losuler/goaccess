@@ -1,13 +1,13 @@
 Name:		goaccess
-Version:	0.7.1
+Version:	0.8
 Release:	1%{?dist}
 Summary:	Apache Log Analyzer
 License:	GPLv2+
 URL:		http://goaccess.prosoftcorp.com/
-Source0:	http://downloads.sourceforge.net/project/%{name}/%{version}/%{name}-%{version}.tar.gz
-BuildRequires:	ncurses-devel
-BuildRequires:	glib2-devel
+Source0:	http://tar.goaccess.prosoftcorp.com/goaccess-%{version}.tar.gz
 BuildRequires:	GeoIP-devel
+BuildRequires:	glib2-devel
+BuildRequires:	ncurses-devel
 
 %description
 Open source real-time web log analyzer and interactive viewer that runs
@@ -22,7 +22,7 @@ for system administrators that require a visual server report on the fly.
 make %{?_smp_mflags}
 
 %install
-make install DESTDIR=%{buildroot}
+%make_install
 
 %files
 %doc AUTHORS ChangeLog COPYING NEWS README TODO
@@ -30,6 +30,9 @@ make install DESTDIR=%{buildroot}
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Wed May 21 2014 Christopher Meng <rpm@cicku.me> - 0.8-1
+- Update to 0.8
+
 * Thu Feb 20 2014 Christopher Meng <rpm@cicku.me> - 0.7.1-1
 - Update to 0.7.1
 
