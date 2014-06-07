@@ -1,6 +1,6 @@
 Name:		goaccess
 Version:	0.8
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Apache Log Analyzer
 License:	GPLv2+
 URL:		http://goaccess.prosoftcorp.com/
@@ -38,6 +38,9 @@ make %{?_smp_mflags}
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.8-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
+
 * Wed May 21 2014 Christopher Meng <rpm@cicku.me> - 0.8-1
 - Update to 0.8
 
