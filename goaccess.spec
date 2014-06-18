@@ -1,10 +1,10 @@
 Name:		goaccess
-Version:	0.8
-Release:	2%{?dist}
-Summary:	Apache Log Analyzer
+Version:	0.8.1
+Release:	1%{?dist}
+Summary:	Real-time web log analyzer and interactive viewer
 License:	GPLv2+
-URL:		http://goaccess.prosoftcorp.com/
-Source0:	http://tar.goaccess.prosoftcorp.com/goaccess-%{version}.tar.gz
+URL:		http://goaccess.io/
+Source0:	http://tar.goaccess.io/goaccess-%{version}.tar.gz
 BuildRequires:	GeoIP-devel
 BuildRequires:	glib2-devel
 BuildRequires:	ncurses-devel
@@ -13,6 +13,39 @@ BuildRequires:	ncurses-devel
 Open source real-time web log analyzer and interactive viewer that runs
 in a terminal in *nix systems. It provides fast and valuable HTTP statistics
 for system administrators that require a visual server report on the fly.
+
+Features:
+GoAccess parses the specified web log file and outputs the data to the X 
+terminal.
+
+* General Statistics, bandwidth, etc.
+* Time taken to serve the request (useful to track pages that are 
+slowing down your site)
+* Top Visitors
+* Requested files & static files
+* 404 or Not Found
+* Hosts, Reverse DNS, IP Location
+* Operating Systems
+* Browsers and Spiders
+* Referring Sites & URLs
+* Keyphrases
+* Geo Location - Continent/Country/City New
+* HTTP Status Codes
+* Ability to output JSON and CSV
+* Different Color Schemes
+* Support for large datasets and data persistence New
+* Support for IPv6
+* Output statistics to HTML. See report.
+* Nearly all web log formats...
+
+GoAccess allows any custom log format string. Predefined options include, 
+but not limited to:
+
+* Common Log Format (CLF) Apache
+* Combined Format (XLF/ELF) Apache|Nginx
+* W3C format (IIS)
+* Amazon CloudFront (Download Distribution).
+* Apache virtual hosts
 
 %prep
 %setup -q
@@ -25,7 +58,7 @@ for system administrators that require a visual server report on the fly.
 # GLib if needed. Basically, we can use GLib still as TC will introduce more
 # dependencies.
 # If upstream can prove that it's faster than GLib hash table on parsing, then
-# we might switch to it.
+# we might switch to it.(From FAQ page I think glib is better)
 make %{?_smp_mflags}
 
 %install
@@ -38,6 +71,9 @@ make %{?_smp_mflags}
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Wed Jun 18 2014 Christopher Meng <rpm@cicku.me> - 0.8.1-1
+- Update to 0.8.1
+
 * Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.8-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
