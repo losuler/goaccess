@@ -1,5 +1,5 @@
 Name:		goaccess
-Version:	0.8.1
+Version:	0.8.2
 Release:	1%{?dist}
 Summary:	Real-time web log analyzer and interactive viewer
 License:	GPLv2+
@@ -59,18 +59,21 @@ but not limited to:
 # dependencies.
 # If upstream can prove that it's faster than GLib hash table on parsing, then
 # we might switch to it.(From FAQ page I think glib is better)
-make %{?_smp_mflags}
+%make_build
 
 %install
 %make_install
 
 %files
-%doc AUTHORS ChangeLog COPYING NEWS README TODO
+%doc AUTHORS ChangeLog COPYING README TODO
 %config(noreplace) %{_sysconfdir}/%{name}.conf
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Tue Jul 22 2014 Christopher Meng <rpm@cicku.me> - 0.8.2-1
+- Update to 0.8.2
+
 * Wed Jun 18 2014 Christopher Meng <rpm@cicku.me> - 0.8.1-1
 - Update to 0.8.1
 
