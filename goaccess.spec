@@ -59,7 +59,7 @@ but not limited to:
 # dependencies.
 # If upstream can prove that it's faster than GLib hash table on parsing, then
 # we might switch to it.(From FAQ page I think glib is better)
-%make_build
+make %{?_smp_mflags}
 
 %install
 %make_install
