@@ -1,6 +1,6 @@
 Name:		goaccess
-Version:	0.8.2
-Release:	2%{?dist}
+Version:	0.8.5
+Release:	1%{?dist}
 Summary:	Real-time web log analyzer and interactive viewer
 License:	GPLv2+
 URL:		http://goaccess.io/
@@ -59,10 +59,10 @@ but not limited to:
 # dependencies.
 # If upstream can prove that it's faster than GLib hash table on parsing, then
 # we might switch to it.(From FAQ page I think glib is better)
-%make_build
+make %{?_smp_mflags}
 
 %install
-%make_install
+make DESTDIR=%{buildroot} install
 
 %files
 %doc AUTHORS ChangeLog COPYING README TODO
@@ -71,6 +71,9 @@ but not limited to:
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Fri Dec 5 2014 Eduardo Echeverria <echevemaster@gmail.com> - 0.8.5-1
+- Update to 0.8.5
+
 * Sat Aug 16 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.8.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
