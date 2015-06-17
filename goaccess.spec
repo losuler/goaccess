@@ -1,6 +1,6 @@
 Name:		goaccess
 Version:	0.8.5
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Real-time web log analyzer and interactive viewer
 License:	GPLv2+
 URL:		http://goaccess.io/
@@ -71,6 +71,9 @@ make DESTDIR=%{buildroot} install
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.8.5-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+
 * Fri Dec 5 2014 Eduardo Echeverria <echevemaster@gmail.com> - 0.8.5-1
 - Update to 0.8.5
 
