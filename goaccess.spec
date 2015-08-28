@@ -5,6 +5,8 @@ Summary:        Real-time web log analyzer and interactive viewer
 License:        GPLv2+
 URL:            http://goaccess.io/
 Source0:        http://tar.goaccess.io/goaccess-%{version}.tar.gz
+BuildRequires:  autoconf
+BuildRequires:  automake
 BuildRequires:  GeoIP-devel
 BuildRequires:  glib2-devel
 BuildRequires:  ncurses-devel
