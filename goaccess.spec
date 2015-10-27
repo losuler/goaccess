@@ -1,5 +1,5 @@
 Name:           goaccess
-Version:        0.9.3
+Version:        0.9.6
 Release:        1%{?dist}
 Summary:        Real-time web log analyzer and interactive viewer
 License:        GPLv2+
@@ -8,7 +8,6 @@ Source0:        http://tar.goaccess.io/goaccess-%{version}.tar.gz
 BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  GeoIP-devel
-BuildRequires:  glib2-devel
 BuildRequires:  ncurses-devel
 
 %description
@@ -55,22 +54,8 @@ not limited to:
 # Prevent flags being overridden again and again.
 #sed -i 's|-pthread|$CFLAGS \0|' configure.ac
 sed -i '/-pthread/d' configure.ac
-sed -i 's|storage:|LDFLAGS = $LIBS $LDFLAGS \n  \0|' configure.ac
-# No math function found.
-sed -i '/goaccess_LDADD/d' Makefile.am
 
 %build
-# --enable-tcb
-# Note about Tokyo Cabinet hash table support: As you can see 0.8 onwards
-# supports hash table alternative from Tokyo Cabinet hash database, to replace
-# GLib if needed. Basically, we can use GLib still as TC will introduce more
-# dependencies.
-# If upstream can prove that it's faster than GLib hash table on parsing, then
-# we might switch to it.(From FAQ page I think glib is better)
-#
-# --enable-debug
-# Maintainers need this option to determine if a bug is caused by downstream,
-# or by design flaw, this option won't affect efficiency and speed.
 autoreconf -fiv
 %configure --enable-debug --enable-geoip --enable-utf8
 make %{?_smp_mflags}
@@ -86,6 +71,9 @@ make %{?_smp_mflags}
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Tue Oct 27 2015 Christopher Meng <rpm@cicku.me> - 0.9.6-1
+- Update to 0.9.6
+
 * Thu Aug 27 2015 Christopher Meng <rpm@cicku.me> - 0.9.3-1
 - Update to 0.9.3
 
