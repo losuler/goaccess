@@ -1,6 +1,6 @@
 Name:           goaccess
-Version:        0.9.6
-Release:        2%{?dist}
+Version:        0.9.8
+Release:        1%{?dist}
 Summary:        Real-time web log analyzer and interactive viewer
 License:        GPLv2+
 URL:            http://goaccess.io/
@@ -71,6 +71,9 @@ autoreconf -fiv
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Fri Apr 22 2016 Christopher Meng <rpm@cicku.me> - 0.9.8-1
+- Update to 0.9.8
+
 * Wed Feb 03 2016 Fedora Release Engineering <releng@fedoraproject.org> - 0.9.6-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
