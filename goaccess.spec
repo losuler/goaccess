@@ -1,7 +1,7 @@
 Name:           goaccess
-Version:        0.9.8
+Version:        1.0.2
 Release:        1%{?dist}
-Summary:        Real-time web log analyzer and interactive viewer
+Summary:        Real-iiiiitime web log analyzer and interactive viewer
 License:        GPLv2+
 URL:            http://goaccess.io/
 Source0:        http://tar.goaccess.io/goaccess-%{version}.tar.gz
@@ -9,6 +9,9 @@ BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  GeoIP-devel
 BuildRequires:  ncurses-devel
+BuildRequires:  tokyocabinet-devel
+BuildRequires:  zlib-devel
+BuildRequires:  bzip2-devel
 
 %description
 GoAccess is a real-time web log analyzer and interactive viewer that runs in a
@@ -57,20 +60,23 @@ sed -i '/-pthread/d' configure.ac
 
 %build
 autoreconf -fiv
-%configure --enable-debug --enable-geoip --enable-utf8
-make %{?_smp_mflags}
+%configure --enable-debug --enable-geoip --enable-utf8 --enable-tcb=btree --with-getline
+%make_build
 
 %install
 %make_install
 
 %files
-%doc AUTHORS ChangeLog README TODO
 %license COPYING
 %config(noreplace) %{_sysconfdir}/%{name}.conf
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
+%{_docdir}/%{name}
 
 %changelog
+* Sat Oct 08 2016 Eduardo Echeverria <echevemaster@gmail.com> - 1.0.2-1
+- Update to 1.0.2 
+
 * Fri Apr 22 2016 Christopher Meng <rpm@cicku.me> - 0.9.8-1
 - Update to 0.9.8
 
@@ -80,17 +86,29 @@ make %{?_smp_mflags}
 * Tue Oct 27 2015 Christopher Meng <rpm@cicku.me> - 0.9.6-1
 - Update to 0.9.6
 
+* Wed Sep 09 2015 Christopher Meng <rpm@cicku.me> - 0.9.4-1
+- Update to 0.9.4
+
 * Thu Aug 27 2015 Christopher Meng <rpm@cicku.me> - 0.9.3-1
 - Update to 0.9.3
 
+* Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.8.5-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+
 * Fri Dec 5 2014 Eduardo Echeverria <echevemaster@gmail.com> - 0.8.5-1
 - Update to 0.8.5
+
+* Sat Aug 16 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.8.2-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
 * Tue Jul 22 2014 Christopher Meng <rpm@cicku.me> - 0.8.2-1
 - Update to 0.8.2
 
 * Wed Jun 18 2014 Christopher Meng <rpm@cicku.me> - 0.8.1-1
 - Update to 0.8.1
+
+* Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.8-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
 * Wed May 21 2014 Christopher Meng <rpm@cicku.me> - 0.8-1
 - Update to 0.8
@@ -106,6 +124,9 @@ make %{?_smp_mflags}
 
 * Wed Nov 20 2013 Christopher Meng <rpm@cicku.me> - 0.6.1-1
 - Update to 0.6.1
+
+* Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.6-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
 
 * Fri Jul 19 2013 Eduardo Echeverria  <echevemaster@gmail.com> - 0.6-1
 - Updated to the new upstream version
