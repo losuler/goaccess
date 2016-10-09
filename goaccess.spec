@@ -1,7 +1,7 @@
 Name:           goaccess
-Version:        0.9.8
+Version:        1.0.2
 Release:        1%{?dist}
-Summary:        Real-time web log analyzer and interactive viewer
+Summary:        Real-iiiiitime web log analyzer and interactive viewer
 License:        GPLv2+
 URL:            http://goaccess.io/
 Source0:        http://tar.goaccess.io/goaccess-%{version}.tar.gz
@@ -9,6 +9,9 @@ BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  GeoIP-devel
 BuildRequires:  ncurses-devel
+BuildRequires:  tokyocabinet-devel
+BuildRequires:  zlib-devel
+BuildRequires:  bzip2-devel
 
 %description
 GoAccess is a real-time web log analyzer and interactive viewer that runs in a
@@ -57,20 +60,23 @@ sed -i '/-pthread/d' configure.ac
 
 %build
 autoreconf -fiv
-%configure --enable-debug --enable-geoip --enable-utf8
+%configure --enable-debug --enable-geoip --enable-utf8 --enable-tcb=btree --with-getline
 %make_build
 
 %install
 %make_install
 
 %files
-%doc AUTHORS ChangeLog README TODO
 %license COPYING
 %config(noreplace) %{_sysconfdir}/%{name}.conf
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
+%{_pkgdocdir}
 
 %changelog
+* Sat Oct 08 2016 Eduardo Echeverria <echevemaster@gmail.com> - 1.0.2-1
+- Update to 1.0.2 
+
 * Fri Apr 22 2016 Christopher Meng <rpm@cicku.me> - 0.9.8-1
 - Update to 0.9.8
 
