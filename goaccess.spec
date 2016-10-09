@@ -1,7 +1,7 @@
 Name:           goaccess
 Version:        1.0.2
-Release:        1%{?dist}
-Summary:        Real-iiiiitime web log analyzer and interactive viewer
+Release:        2%{?dist}
+Summary:        Real-time web log analyzer and interactive viewer
 License:        GPLv2+
 URL:            http://goaccess.io/
 Source0:        http://tar.goaccess.io/goaccess-%{version}.tar.gz
@@ -74,6 +74,9 @@ autoreconf -fiv
 %{_pkgdocdir}
 
 %changelog
+* Sun Oct 09 2016 Eduardo Echeverria <echevemaster@gmail.com> - 1.0.2-2
+- Fix typo on the summary
+
 * Sat Oct 08 2016 Eduardo Echeverria <echevemaster@gmail.com> - 1.0.2-1
 - Update to 1.0.2 
 
