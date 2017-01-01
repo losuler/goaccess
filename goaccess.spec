@@ -1,12 +1,13 @@
 Name:           goaccess
-Version:        1.0.2
-Release:        2%{?dist}
+Version:        1.1.1
+Release:        1%{?dist}
 Summary:        Real-time web log analyzer and interactive viewer
 License:        GPLv2+
-URL:            http://goaccess.io/
-Source0:        http://tar.goaccess.io/goaccess-%{version}.tar.gz
+URL:            https://goaccess.io/
+Source0:        http://tar.goaccess.io/%{name}-%{version}.tar.gz
 BuildRequires:  autoconf
 BuildRequires:  automake
+BuildRequires:  gcc
 BuildRequires:  GeoIP-devel
 BuildRequires:  ncurses-devel
 BuildRequires:  tokyocabinet-devel
@@ -74,6 +75,9 @@ autoreconf -fiv
 %{_pkgdocdir}
 
 %changelog
+* Sun Jan 01 2017 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 1.1.1-1
+- Update to 1.1.1
+
 * Sun Oct 09 2016 Eduardo Echeverria <echevemaster@gmail.com> - 1.0.2-2
 - Fix typo on the summary
 
