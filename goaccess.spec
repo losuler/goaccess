@@ -1,12 +1,13 @@
 Name:           goaccess
-Version:        1.0.2
-Release:        2%{?dist}
+Version:        1.2
+Release:        1%{?dist}
 Summary:        Real-time web log analyzer and interactive viewer
 License:        GPLv2+
-URL:            http://goaccess.io/
-Source0:        http://tar.goaccess.io/goaccess-%{version}.tar.gz
+URL:            https://goaccess.io/
+Source0:        http://tar.goaccess.io/%{name}-%{version}.tar.gz
 BuildRequires:  autoconf
 BuildRequires:  automake
+BuildRequires:  gcc
 BuildRequires:  GeoIP-devel
 BuildRequires:  ncurses-devel
 BuildRequires:  tokyocabinet-devel
@@ -74,8 +75,17 @@ autoreconf -fiv
 %{_docdir}/%{name}
 
 %changelog
+* Sat Jul 22 2017 Eduardo Echeverria <echevemaster@gmail.com> - 1.2-1
+- Update to 1.2
+
+* Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.1.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
+* Sun Jan 01 2017 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 1.1.1-1
+- Update to 1.1.1
+
 * Sun Oct 09 2016 Eduardo Echeverria <echevemaster@gmail.com> - 1.0.2-2
-- fix typo on the summary
+- Fix typo on the summary
 
 * Sat Oct 08 2016 Eduardo Echeverria <echevemaster@gmail.com> - 1.0.2-1
 - Update to 1.0.2 
