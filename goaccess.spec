@@ -1,6 +1,6 @@
 Name:           goaccess
-Version:        1.1.1
-Release:        2%{?dist}
+Version:        1.2
+Release:        1%{?dist}
 Summary:        Real-time web log analyzer and interactive viewer
 License:        GPLv2+
 URL:            https://goaccess.io/
@@ -75,6 +75,9 @@ autoreconf -fiv
 %{_pkgdocdir}
 
 %changelog
+* Sat Jul 22 2017 Eduardo Echeverria <echevemaster@gmail.com> - 1.2-1
+- Update to 1.2
+
 * Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.1.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
 
