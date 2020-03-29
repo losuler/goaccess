@@ -1,10 +1,24 @@
+%bcond_without lto
+		
+%bcond_without tcb_memhash
+	
+%bcond_with tcb_btree
+		
+%bcond_without openssl
+		
+%if %{with lto}	
+%global optflags        %{optflags} -flto
+%global build_ldflags   %{build_ldflags} -flto
+%endif
+
 Name:           goaccess
-Version:        1.2
-Release:        8%{?dist}
+Version:        1.3
+Release:        1%{?dist}
 Summary:        Real-time web log analyzer and interactive viewer
 License:        GPLv2+
 URL:            https://goaccess.io/
 Source0:        http://tar.goaccess.io/%{name}-%{version}.tar.gz
+Patch1:         patch.diff
 BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  gcc
@@ -13,6 +27,10 @@ BuildRequires:  ncurses-devel
 BuildRequires:  tokyocabinet-devel
 BuildRequires:  zlib-devel
 BuildRequires:  bzip2-devel
+BuildRequires:	gettext-devel
+%if %{with openssl}	
+BuildRequires:  openssl-devel	
+%endif
 
 %description
 GoAccess is a real-time web log analyzer and interactive viewer that runs in a
@@ -54,27 +72,39 @@ not limited to:
 * W3C format (IIS).
 
 %prep
-%setup -q
+%autosetup -p1
 # Prevent flags being overridden again and again.
 #sed -i 's|-pthread|$CFLAGS \0|' configure.ac
 sed -i '/-pthread/d' configure.ac
 
 %build
-autoreconf -fiv
-%configure --enable-debug --enable-geoip --enable-utf8 --enable-tcb=btree --with-getline
+# autoreconf -fiv
+# %configure --enable-debug --enable-geoip --enable-utf8 --enable-tcb=btree --with-getline
+%configure \
+	--enable-debug \
+	--enable-geoip=legacy \
+	%{?with_tcb_memhash: --enable-tcb=memhash} \
+	%{?with_tcb_btree: --enable-tcb=btree} \
+	--enable-utf8 \
+	--with-getline \
+	 %{?with_openssl: --with-openssl}
 %make_build
 
 %install
 %make_install
+%find_lang %{name}
 
-%files
+%files -f %{name}.lang
 %license COPYING
-%config(noreplace) %{_sysconfdir}/%{name}.conf
+%config(noreplace) %{_sysconfdir}/%{name}/%{name}.conf
+%config(noreplace) %{_sysconfdir}/%{name}/browsers.list
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
-%{_pkgdocdir}
 
 %changelog
+* Sun Mar 29 2020 Eduardo Echeverria <echevemaster@gmail.com> - 1.3-1
+- Upgrade version to 1.3, thanks elxreno@gmail.com
+
 * Tue Jan 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.2-8
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
