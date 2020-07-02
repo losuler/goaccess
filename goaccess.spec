@@ -17,7 +17,7 @@ Release:        1%{?dist}
 Summary:        Real-time web log analyzer and interactive viewer
 License:        GPLv2+
 URL:            https://goaccess.io/
-Source0:        http://tar.goaccess.io/%{name}-%{version}.tar.gz
+Source0:        https://tar.goaccess.io/%{name}-%{version}.tar.gz
 Patch1:         patch.diff
 BuildRequires:  autoconf
 BuildRequires:  automake
