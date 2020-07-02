@@ -88,6 +88,7 @@ sed -i '/-pthread/d' configure.ac
 %license COPYING
 %config(noreplace) %{_sysconfdir}/%{name}/%{name}.conf
 %config(noreplace) %{_sysconfdir}/%{name}/browsers.list
+%config(noreplace) %{_sysconfdir}/%{name}/podcast.list
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
 
