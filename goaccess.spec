@@ -1,9 +1,5 @@
 %bcond_without lto
 		
-%bcond_without tcb_memhash
-	
-%bcond_with tcb_btree
-		
 %bcond_without openssl
 		
 %if %{with lto}	
@@ -24,9 +20,6 @@ BuildRequires:  automake
 BuildRequires:  gcc
 BuildRequires:  GeoIP-devel
 BuildRequires:  ncurses-devel
-BuildRequires:  tokyocabinet-devel
-BuildRequires:  zlib-devel
-BuildRequires:  bzip2-devel
 BuildRequires:	gettext-devel
 %if %{with openssl}	
 BuildRequires:  openssl-devel	
@@ -83,8 +76,6 @@ sed -i '/-pthread/d' configure.ac
 %configure \
 	--enable-debug \
 	--enable-geoip=legacy \
-	%{?with_tcb_memhash: --enable-tcb=memhash} \
-	%{?with_tcb_btree: --enable-tcb=btree} \
 	--enable-utf8 \
 	--with-getline \
 	 %{?with_openssl: --with-openssl}
