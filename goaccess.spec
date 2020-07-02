@@ -33,7 +33,7 @@ Features:
 GoAccess parses the specified web log file and outputs the data to terminal.
 
 * General statistics, bandwidth, etc.
-* Time taken to serve the request (useful to track pages that are slowing down.
+* Time taken to serve the request (useful to track pages that are slowing down
 your site).
 * Metrics for cumulative, average and slowest running requests.
 * Top visitors.
