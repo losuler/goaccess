@@ -1,8 +1,8 @@
 %bcond_without lto
-		
+
 %bcond_without openssl
-		
-%if %{with lto}	
+
+%if %{with lto}
 %global optflags        %{optflags} -flto
 %global build_ldflags   %{build_ldflags} -flto
 %endif
@@ -19,9 +19,9 @@ BuildRequires:  automake
 BuildRequires:  gcc
 BuildRequires:  GeoIP-devel
 BuildRequires:  ncurses-devel
-BuildRequires:	gettext-devel
-%if %{with openssl}	
-BuildRequires:  openssl-devel	
+BuildRequires:  gettext-devel
+%if %{with openssl}
+BuildRequires:  openssl-devel
 %endif
 
 %description
@@ -73,11 +73,11 @@ sed -i '/-pthread/d' configure.ac
 # autoreconf -fiv
 # %%configure --enable-debug --enable-geoip --enable-utf8 --enable-tcb=btree --with-getline
 %configure \
-	--enable-debug \
-	--enable-geoip=legacy \
-	--enable-utf8 \
-	--with-getline \
-	 %{?with_openssl: --with-openssl}
+    --enable-debug \
+    --enable-geoip=legacy \
+    --enable-utf8 \
+    --with-getline \
+    %{?with_openssl: --with-openssl}
 %make_build
 
 %install
