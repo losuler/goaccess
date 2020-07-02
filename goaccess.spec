@@ -14,7 +14,6 @@ Summary:        Real-time web log analyzer and interactive viewer
 License:        GPLv2+
 URL:            https://goaccess.io/
 Source0:        https://tar.goaccess.io/%{name}-%{version}.tar.gz
-Patch1:         patch.diff
 BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  gcc
@@ -65,7 +64,7 @@ not limited to:
 * W3C format (IIS).
 
 %prep
-%autosetup -p1
+%autosetup
 # Prevent flags being overridden again and again.
 #sed -i 's|-pthread|$CFLAGS \0|' configure.ac
 sed -i '/-pthread/d' configure.ac
