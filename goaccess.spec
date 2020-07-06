@@ -70,7 +70,7 @@ not limited to:
 sed -i '/-pthread/d' configure.ac
 
 %build
-# autoreconf -fiv
+autoreconf -fiv
 # %%configure --enable-debug --enable-geoip --enable-utf8 --enable-tcb=btree --with-getline
 %configure \
     --enable-debug \
