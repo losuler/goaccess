@@ -8,7 +8,7 @@
 %endif
 
 Name:           goaccess
-Version:        1.4
+Version:        1.4.3
 Release:        1%{?dist}
 Summary:        Real-time web log analyzer and interactive viewer
 License:        GPLv2+
