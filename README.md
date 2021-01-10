@@ -3,7 +3,7 @@
   <p align="center">
     <h3 align="center">GoAccess RPM</h3>
     <p align="center">
-      Fedora packaging for GoAccess.
+      Fedora/CentOS packaging for GoAccess.
     </p>
   </p>
 </p>
@@ -11,7 +11,7 @@
 
 ## About
 
-This is Fedora packaging for [GoAccess](https://goaccess.io), cloned from the [official Fedora repo](https://src.fedoraproject.org/rpms/goaccess) to provide versions for missing releases (such as EPEL 8).
+This is Fedora/CentOS packaging for [GoAccess](https://goaccess.io), cloned from the [official Fedora repo](https://src.fedoraproject.org/rpms/goaccess) to provide versions for missing releases (such as EPEL 8).
 
 ## Builds
 
