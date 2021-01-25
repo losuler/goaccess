@@ -1,5 +1,4 @@
 %bcond_without lto
-
 %bcond_without openssl
 
 %if %{with lto}
@@ -23,6 +22,7 @@ BuildRequires:  gettext-devel
 %if %{with openssl}
 BuildRequires:  openssl-devel
 %endif
+BuildRequires: make
 
 %description
 GoAccess is a real-time web log analyzer and interactive viewer that runs in a
@@ -93,6 +93,16 @@ autoreconf -fiv
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Thu Jan  7 2021 Filipe Rosset <rosset.filipe@gmail.com> - 1.4.3-1
+- Update to 1.4.3 fixes rhbz#1837101
+
+* Sat Aug 01 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.3-3
+- Second attempt - Rebuilt for
+  https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
+* Mon Jul 27 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
 * Sun Mar 29 2020 Eduardo Echeverria <echevemaster@gmail.com> - 1.3-1
 - Upgrade version to 1.3, thanks elxreno@gmail.com
 
