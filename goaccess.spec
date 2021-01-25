@@ -65,12 +65,15 @@ not limited to:
 
 %prep
 %autosetup
+# Fix aclocal-1.16 is missing error
+autoreconf -fiv
+# Fix declarations are only allowed in C99 mode errors
+sed -i '/AM_PROG_CC_C_O/a AC_PROG_CC_STDC' configure.ac
 # Prevent flags being overridden again and again.
 #sed -i 's|-pthread|$CFLAGS \0|' configure.ac
 sed -i '/-pthread/d' configure.ac
 
 %build
-autoreconf -fiv
 # %%configure --enable-debug --enable-geoip --enable-utf8 --enable-tcb=btree --with-getline
 %configure \
     --enable-debug \
