@@ -7,7 +7,7 @@
 %endif
 
 Name:           goaccess
-Version:        1.4.4
+Version:        1.4.5
 Release:        1%{?dist}
 Summary:        Real-time web log analyzer and interactive viewer
 License:        GPLv2+
@@ -96,6 +96,13 @@ sed -i '/-pthread/d' configure.ac
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Sun Feb 14 2021 Eduardo Echeverria <echevemaster@gmail.com> - 1.4.5-1
+- Update to 1.4.5 fixes rhbz#1920124
+
+* Mon Jan 25 2021 losuler <losuler@posteo.net> - 1.4.4-1
+- Update to 1.4.4
+- Fix declarations are only allowed in C99 mode errors
+
 * Thu Jan  7 2021 Filipe Rosset <rosset.filipe@gmail.com> - 1.4.3-1
 - Update to 1.4.3 fixes rhbz#1837101
 
