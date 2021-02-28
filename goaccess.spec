@@ -8,7 +8,7 @@
 
 Name:           goaccess
 Version:        1.4.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Real-time web log analyzer and interactive viewer
 License:        GPLv2+
 URL:            https://goaccess.io/
@@ -67,8 +67,6 @@ not limited to:
 %autosetup
 # Fix aclocal-1.16 is missing error
 autoreconf -fiv
-# Fix declarations are only allowed in C99 mode errors
-sed -i '/AM_PROG_CC_C_O/a AC_PROG_CC_STDC' configure.ac
 # Prevent flags being overridden again and again.
 #sed -i 's|-pthread|$CFLAGS \0|' configure.ac
 sed -i '/-pthread/d' configure.ac
