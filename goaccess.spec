@@ -94,6 +94,9 @@ sed -i '/-pthread/d' configure.ac
 %{_mandir}/man1/%{name}.1*
 
 %changelog
+* Sun Feb 28 2021 losuler<losuler@posteo.net> - 1.4.5-2
+- Remove fix for declarations only allowed in C99 mode
+
 * Sun Feb 14 2021 Eduardo Echeverria <echevemaster@gmail.com> - 1.4.5-1
 - Update to 1.4.5 fixes rhbz#1920124
 
