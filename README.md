@@ -13,7 +13,7 @@
 
 This is Fedora/CentOS packaging for [GoAccess](https://goaccess.io), cloned from the [official Fedora repo](https://src.fedoraproject.org/rpms/goaccess) to provide versions for missing releases (such as EPEL 8).
 
-> **Update**: This package is now available in the official Fedora and EPEL repositories https://src.fedoraproject.org/rpms/goaccess. It is recommended to migrate to this package. The spec and associated builds provided here will no longer be maintained.
+> **Update**: The versions for missing releases are now available from the official Fedora and EPEL repositories https://src.fedoraproject.org/rpms/goaccess. It is recommended to migrate to this package. The spec and associated builds provided here will no longer be maintained.
 
 ## Builds
 
